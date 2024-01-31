@@ -57,4 +57,29 @@ const luminosityPass = new THREE.ShaderPass( THREE.LuminosityShader );
 For more info and instructions checek out the [THREE.js docs on post-processing](https://threejs.org/docs/#manual/en/introduction/How-to-use-post-processing)
 
 
+### How to use OrbitControls
+1. Initialize the OrbitControls module after initializing the Scene, camera and renderer.
+```
+controls = new THREE.OrbitControls(camera, renderer.domElement);
+```
+
+There's a whole bunch of options for [OrbitControls, learn more here](https://threejs.org/docs/?q=orbit#examples/en/controls/OrbitControls). Some examples:
+```
+controls.dampingFactor = 0.1;
+controls.enableDamping = true;
+controls.maxDistance = 85;
+controls.minDistance = 10;
+controls.enableZoom = true;
+controls.enablePan = false;
+controls.autoRotateSpeed = 1;
+controls.autoRotate = true;
+controls.enableDamping = true;
+controls.target.set(0, 0, 0);
+```
+
+Then in your `animate()` function or animation loop, just make sure to update the controls
+```
+controls.update();
+```
+
 
