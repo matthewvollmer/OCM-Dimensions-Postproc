@@ -6,4 +6,55 @@
     - If you don't have `minify`, just put the js code in `compressed-inputs/02_main.min.js` directly.
 3. Run `make clean && make` in the terminal.
 4. Your final file will be `index.html`.
-5. To check if `index.html` file works locally, open `index.html` and search and replace "fetch(/content/" with "fetch(https://ordinals.com/content/".
+5. The Index.html file will work locally, due to an addition from this fork.
+
+6. Within 02_main.js, you'll see some additional lines of code:  loadScript is an additional method for loading OrbitControls and PostProcessing. And the associated code for both features has been injected to the initialization of the scene, and the animate() function.
+
+
+### PostProcessing inclusions
+To enable postprocessing on your scene:
+1. first initialize an EffectComposer:
+2. Then initialize a RenderPass, with your Scene and Camera as inputs
+3. Then initialize whatever pass you want. The available supported paths are listed below.
+4. Add your RenderPass to the composer
+5. Add your other passes to the composer
+Then initialize a RenderPass 
+```
+// Adding post processing code
+const composer = new THREE.EffectComposer( renderer );
+const renderScene = new THREE.RenderPass( scene, camera );
+const bloomPass = new THREE.UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight),1,2,0)
+composer.addPass(renderScene);
+composer.addPass(bloomPass)
+```
+
+In your `animate()` loop, you must also call the composer to render your scene, instead of the renderer directly. 
+```
+//replace renderer's render function with composer
+//renderer.render( scene, camera );
+composer.render();
+```
+
+The following Passes are available in the bundled recursive inscription :
+1. BloomPass
+2. RenderPass
+3. UnrealBloomPass
+4. GlitchPass
+5. ShaderPass
+   
+ShaderPass can be used to apply any custom shader as a post processing effect, and some example shaders are included for you.
+1. CopyShader
+2. CombineShader
+3. ConvolutionShader
+4. LuminosityHighPassShader
+5. LuminosityShader
+6. SobelOperatorShader
+Here's an example of how to initialize a ShaderPass with one of these:
+```
+const luminosityPass = new THREE.ShaderPass( THREE.LuminosityShader );
+```
+
+For more info and instructions checek out the [THREE.js docs on post-processing](https://threejs.org/docs/#manual/en/introduction/How-to-use-post-processing)
+
+
+
