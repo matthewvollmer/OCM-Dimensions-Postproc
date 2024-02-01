@@ -6,9 +6,7 @@
     - If you don't have `minify`, just put the js code in `compressed-inputs/02_main.min.js` directly.
 3. Run `make clean && make` in the terminal.
 4. Your final file will be `index.html`.
-5. The Index.html file will work locally, due to an addition from this fork.
-
-6. Within 02_main.js, you'll see some additional lines of code:  loadScript is an additional method for loading OrbitControls and PostProcessing. And the associated code for both features has been injected to the initialization of the scene, and the animate() function.
+5. The Index.html file will work locally, due to an addition from this fork. No need for additional changes
 
 
 ### PostProcessing inclusions
