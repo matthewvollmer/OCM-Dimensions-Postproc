@@ -56,6 +56,12 @@ const luminosityPass = new THREE.ShaderPass( THREE.LuminosityShader );
 
 For more info and instructions checek out the [THREE.js docs on post-processing](https://threejs.org/docs/#manual/en/introduction/How-to-use-post-processing)
 
+Here's how the example script looks with and without UnrealBloomPass
+![Screenshot 2024-01-31 at 3 36 11 PM](https://github.com/matthewvollmer/OCM-Dimensions-Postproc/assets/20975124/3d219dbc-8297-45e9-bd0c-bd5964f7d1ba)
+![Screenshot 2024-01-31 at 3 36 21 PM](https://github.com/matthewvollmer/OCM-Dimensions-Postproc/assets/20975124/166cfbf6-fa93-4294-b3f3-e5c771fae9b6)
+
+
+
 
 ### How to use OrbitControls
 1. Initialize the OrbitControls module after initializing the Scene, camera and renderer.
