@@ -2,9 +2,11 @@
 <meta charset="utf-8"><style>body{margin:0}</style>
 </head><body><div id="scene"></div>
 <script>
-var urls = ['/blocktime','/content/183616632d0baeeaf8bc7bbda1766ea1fb19e76f63fdf136456e075bf19ed08di0','/content/2dbdf9ebbec6be793fd16ae9b797c7cf968ab2427166aaf390b90b71778266abi0','/content/10665922de450d9b25c21d213ac7a2b7231e79a25be5865fd10ba0e19c4fac21i0','/content/8681d04e680c9cfc1052ea694919ddcfbf9e87d0e9e9eb85bba7f0f1332ebb27i0']
+var urls = ['/content/183616632d0baeeaf8bc7bbda1766ea1fb19e76f63fdf136456e075bf19ed08di0',
+'/content/2dbdf9ebbec6be793fd16ae9b797c7cf968ab2427166aaf390b90b71778266abi0',
+'/content/10665922de450d9b25c21d213ac7a2b7231e79a25be5865fd10ba0e19c4fac21i0']
 if (window.location.href.includes('file://')||window.location.href.includes('localhost:3000')) {for(var i=0;i<urls.length;i++) {urls[i]='https://ord-mirror.magiceden.dev'+urls[i]}}
 td='SRC_COMPRESSED_STRING';function fflateCallback(){newS=document.createElement('script');
 newS.innerHTML=fflate.strFromU8(fflate.gunzipSync(new Uint8Array(Array.from(atob(td)).map((char)=>char.charCodeAt(0)))))+";fflateCallback2()";document.body.appendChild(newS);}
-(async function(){response=await fetch(urls[2]);hl=await response.text();hlL=hl.split("\n");fflateS=hlL[28];d3S=hlL[32];
+(async function(){response=await fetch(urls[1]);hl=await response.text();hlL=hl.split("\n");fflateS=hlL[28];d3S=hlL[32];
 ffCS="fflateCallback();";newS=document.createElement('script');newS.innerHTML=[fflateS,d3S,ffCS].join(";\n");document.body.appendChild(newS);})();</script>
